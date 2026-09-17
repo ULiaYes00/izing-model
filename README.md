@@ -80,7 +80,7 @@ $$
 |M| = \frac{1}{N^2}\left|\sum_i S_i\right|.
 $$
 
-### Heat capacity
+### Heat Capacity
 
 Heat capacity is estimated from energy fluctuations:
 
@@ -98,7 +98,9 @@ The program generates:
 
 The thermodynamic observables obtained with Metropolis and Gibbs sampling are compared over the full temperature range to examine the consistency of both Monte Carlo approaches.
 
-Low temperatures generally produce ordered spin regions, while high temperatures produce a more disordered state.
+The temperature dependence of heat capacity is used to study the phase transition of the Ising model. The critical temperature $T_c \approx 2.269$ is used as a reference point for analyzing the behavior of the thermodynamic observables.
+
+At low temperatures, the system generally forms ordered spin regions with higher magnetization. As the temperature increases, thermal fluctuations become stronger and the spin configuration becomes more disordered. The behavior of heat capacity and magnetization near the critical temperature provides information about the phase transition.
 
 ## Installation
 
@@ -135,4 +137,7 @@ Here, `N` is the lattice size, `J` is the interaction strength, `h` is the exter
 * Numba
 * Monte Carlo methods
 * Statistical mechanics
+
+
+
 
