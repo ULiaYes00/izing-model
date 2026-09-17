@@ -4,7 +4,7 @@ A Python implementation of the two-dimensional Ising model using **Metropolis** 
 
 ## Overview
 
-Each spin takes one of two values, $S_{i,j} \in \{-1,+1\}$. The system is described by the Hamiltonian
+Each spin takes one of two values, $S_{i,j} \in {-1,+1}$. The system is described by the Hamiltonian
 
 $$
 H = -J\sum_{\langle i,j\rangle} S_iS_j - h\sum_i S_i.
@@ -18,14 +18,14 @@ $$
 
 ## Features
 
-- Two-dimensional square lattice with periodic boundary conditions
-- Metropolis and Gibbs Monte Carlo algorithms
-- Multiple independent simulation runs
-- Equilibration before measurements
-- Energy, magnetization, and heat-capacity estimates
-- Comparison of both sampling methods
-- Spin-configuration visualization and animation
-- Numba acceleration for computationally intensive operations
+* Two-dimensional square lattice with periodic boundary conditions
+* Metropolis and Gibbs Monte Carlo algorithms
+* Multiple independent simulation runs
+* Equilibration before measurements
+* Energy, magnetization, and heat-capacity estimates
+* Comparison of both sampling methods
+* Spin-configuration visualization and animation
+* Numba JIT compilation for computationally intensive Monte Carlo and measurement loops
 
 ## Monte Carlo Methods
 
@@ -61,8 +61,10 @@ For each temperature and sampling method, the program:
 2. Equilibrates the lattice.
 3. Performs measurement sweeps.
 4. Records energy and absolute magnetization.
-5. Repeats the simulation for independent runs.
+5. Repeats the simulation for 3 independent runs.
 6. Averages the measured quantities.
+
+The simulation evaluates 30 temperatures between $T=1.0$ and $T=4.0$ for each Monte Carlo method.
 
 ## Observables
 
@@ -90,9 +92,11 @@ $$
 
 The program generates:
 
-- Spin configurations at $T=1.0$, $2.0$, $T_c$, $3.0$, and $4.0
-- An animation of spin evolution near the critical temperature
-- Temperature-dependent comparisons of energy, absolute magnetization, and heat capacity for Metropolis and Gibbs sampling
+* Spin configurations at $T=1.0$, $T=2.0$, $T=T_c$, $T=3.0$, and $T=4.0$
+* An animation of spin evolution near the critical temperature
+* Temperature-dependent comparisons of energy, absolute magnetization, and heat capacity for Metropolis and Gibbs sampling
+
+The thermodynamic observables obtained with Metropolis and Gibbs sampling are compared over the full temperature range to examine the consistency of both Monte Carlo approaches.
 
 Low temperatures generally produce ordered spin regions, while high temperatures produce a more disordered state.
 
@@ -105,7 +109,7 @@ pip install numpy matplotlib numba
 ## Usage
 
 ```bash
-python ising_model.py
+3.0.lab.py
 ```
 
 The script performs the simulations and generates numerical results, plots, and an animation.
@@ -125,9 +129,10 @@ Here, `N` is the lattice size, `J` is the interaction strength, `h` is the exter
 
 ## Technologies
 
-- Python
-- NumPy
-- Matplotlib
-- Numba
-- Monte Carlo methods
-- Statistical mechanics
+* Python
+* NumPy
+* Matplotlib
+* Numba
+* Monte Carlo methods
+* Statistical mechanics
+
